@@ -1,0 +1,161 @@
+Performing C SOURCE FILE Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_34479 && [1/2] Building C object CMakeFiles/cmTC_34479.dir/src.c.o
+FAILED: CMakeFiles/cmTC_34479.dir/src.c.o 
+/usr/bin/cc -DC_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW  -fPIC -fno-semantic-interposition -Werror=date-time  -fPIE   -Werror -Werror=unguarded-availability-new -o CMakeFiles/cmTC_34479.dir/src.c.o -c /workspace/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: '-Werror=unguarded-availability-new': no option '-Wunguarded-availability-new'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_281f4 && [1/2] Building CXX object CMakeFiles/cmTC_281f4.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_281f4.dir/src.cxx.o 
+/usr/bin/c++ -DCXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time  -fPIE   -Werror -Werror=unguarded-availability-new -std=gnu++17 -o CMakeFiles/cmTC_281f4.dir/src.cxx.o -c /workspace/build/CMakeFiles/CMakeTmp/src.cxx
+cc1plus: error: '-Werror=unguarded-availability-new': no option '-Wunguarded-availability-new'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_efad4 && [1/2] Building C object CMakeFiles/cmTC_efad4.dir/src.c.o
+FAILED: CMakeFiles/cmTC_efad4.dir/src.c.o 
+/usr/bin/cc -DC_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough  -fPIE   -Werror -Wcovered-switch-default -o CMakeFiles/cmTC_efad4.dir/src.c.o -c /workspace/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wcovered-switch-default'; did you mean '-Wno-switch-default'?
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_39ff2 && [1/2] Building CXX object CMakeFiles/cmTC_39ff2.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_39ff2.dir/src.cxx.o 
+/usr/bin/c++ -DCXX_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough  -fPIE   -Werror -Wcovered-switch-default -std=gnu++17 -o CMakeFiles/cmTC_39ff2.dir/src.cxx.o -c /workspace/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wcovered-switch-default'; did you mean '-Wno-switch-default'?
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_9a901 && [1/2] Building CXX object CMakeFiles/cmTC_9a901.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_9a901.dir/src.cxx.o 
+/usr/bin/c++ -DCXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-nonnull -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type  -Werror=non-virtual-dtor -fPIE -std=gnu++17 -o CMakeFiles/cmTC_9a901.dir/src.cxx.o -c /workspace/build/CMakeFiles/CMakeTmp/src.cxx
+/workspace/build/CMakeFiles/CMakeTmp/src.cxx:2:36: error: 'class base' has virtual functions and accessible non-virtual destructor [-Werror=non-virtual-dtor]
+    2 |                              class base {friend f; public: virtual void anchor();protected: ~base();};
+      |                                    ^~~~
+cc1plus: some warnings being treated as errors
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+class f {};
+                             class base {friend f; public: virtual void anchor();protected: ~base();};
+                             int main() { return 0; }
+Performing C SOURCE FILE Test C_WCOMMENT_ALLOWS_LINE_WRAP failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_485e1 && [1/2] Building C object CMakeFiles/cmTC_485e1.dir/src.c.o
+FAILED: CMakeFiles/cmTC_485e1.dir/src.c.o 
+/usr/bin/cc -DC_WCOMMENT_ALLOWS_LINE_WRAP  -fPIC -fno-semantic-interposition -Werror=date-time -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough  -Werror -Wcomment -fPIE -o CMakeFiles/cmTC_485e1.dir/src.c.o -c /workspace/build/CMakeFiles/CMakeTmp/src.c
+/workspace/build/CMakeFiles/CMakeTmp/src.c:1:1: error: multi-line comment [-Werror=comment]
+    1 | // \
+      | ^
+cc1: all warnings being treated as errors
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+// \
+//
+int main(void) {return 0;}
+Performing C SOURCE FILE Test C_SUPPORTS_STRING_CONVERSION_FLAG failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_d3c32 && [1/2] Building C object CMakeFiles/cmTC_d3c32.dir/src.c.o
+FAILED: CMakeFiles/cmTC_d3c32.dir/src.c.o 
+/usr/bin/cc -DC_SUPPORTS_STRING_CONVERSION_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-comment  -fPIE   -Werror -Wstring-conversion -o CMakeFiles/cmTC_d3c32.dir/src.c.o -c /workspace/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wstring-conversion'; did you mean '-Wsign-conversion'?
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_STRING_CONVERSION_FLAG failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_84bdb && [1/2] Building CXX object CMakeFiles/cmTC_84bdb.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_84bdb.dir/src.cxx.o 
+/usr/bin/c++ -DCXX_SUPPORTS_STRING_CONVERSION_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-nonnull -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type -Wdelete-non-virtual-dtor -Wsuggest-override -Wno-comment  -fPIE   -Werror -Wstring-conversion -std=gnu++17 -o CMakeFiles/cmTC_84bdb.dir/src.cxx.o -c /workspace/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wstring-conversion'; did you mean '-Wsign-conversion'?
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_f8563 && [1/2] Building C object CMakeFiles/cmTC_f8563.dir/src.c.o
+FAILED: CMakeFiles/cmTC_f8563.dir/src.c.o 
+/usr/bin/cc -DC_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-comment  -fPIE   -Werror -Wctad-maybe-unsupported -o CMakeFiles/cmTC_f8563.dir/src.c.o -c /workspace/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: command-line option '-Wctad-maybe-unsupported' is valid for C++/ObjC++ but not for C [-Werror]
+cc1: all warnings being treated as errors
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test LINKER_SUPPORTS_COLOR_DIAGNOSTICS failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_b802a && [1/2] Building CXX object CMakeFiles/cmTC_b802a.dir/src.cxx.o
+[2/2] Linking CXX executable cmTC_b802a
+FAILED: cmTC_b802a 
+: && /usr/bin/c++ -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-nonnull -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type -Wdelete-non-virtual-dtor -Wsuggest-override -Wno-comment -Wno-misleading-indentation -Wctad-maybe-unsupported -fdiagnostics-color -Wl,--color-diagnostics CMakeFiles/cmTC_b802a.dir/src.cxx.o -o cmTC_b802a   && :
+/usr/bin/ld: unrecognized option '--color-diagnostics'
+/usr/bin/ld: use the --help option for usage information
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Determining if the os_signpost_interval_begin exist failed with the following output:
+Change Dir: /workspace/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_0dc98 && [1/2] Building C object CMakeFiles/cmTC_0dc98.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_0dc98.dir/CheckSymbolExists.c.o 
+/usr/bin/cc   -fPIC -fno-semantic-interposition -fno-lifetime-dse -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-comment -fdiagnostics-color -ffunction-sections -fdata-sections  -fPIE -o CMakeFiles/cmTC_0dc98.dir/CheckSymbolExists.c.o -c /workspace/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/workspace/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: os/signpost.h: No such file or directory
+    2 | #include <os/signpost.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+File /workspace/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <os/signpost.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef os_signpost_interval_begin
+  return ((int*)(&os_signpost_interval_begin))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

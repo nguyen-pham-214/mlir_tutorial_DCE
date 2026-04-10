@@ -1,0 +1,25 @@
+func.func @main(%lhs: tensor<?xf64>, %rhs: tensor<?xf64>) -> tensor<?xf64> {
+  // ---- Constant Folding candidate ----
+  %c0 = arith.constant 0.0 : f64
+  %c1 = arith.constant 1.0 : f64
+
+  // ---- Canonicalize / ConstantFold ----
+  %dead_add = "toy.add"(%c0, %c1)
+      : (f64, f64) -> f64
+
+  // ---- Common Subexpression ----
+  %sum1 = "toy.add"(%lhs, %rhs)
+      : (tensor<?xf64>, tensor<?xf64>) -> tensor<?xf64>
+  %sum2 = "toy.add"(%lhs, %rhs)
+      : (tensor<?xf64>, tensor<?xf64>) -> tensor<?xf64>
+
+  // ---- Use only one of them ----
+  %prod = "toy.mul"(%sum1, %rhs)
+      : (tensor<?xf64>, tensor<?xf64>) -> tensor<?xf64>
+
+  // ---- Dead Code ----
+  %unused = "toy.mul"(%sum2, %rhs)
+      : (tensor<?xf64>, tensor<?xf64>) -> tensor<?xf64>
+
+  return %prod : tensor<?xf64>
+}
