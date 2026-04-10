@@ -28,3 +28,7 @@ After second iteration
 ```
 return %a
 ```
+
+**Note**: you can check the code in 2 files here: 
+- passes/ToyDCEPass.cpp
+- test/toy-dce.mlir
