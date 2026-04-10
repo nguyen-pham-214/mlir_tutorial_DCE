@@ -1,61 +1,30 @@
-# mlir_tutorial
+This project extends the original mlir_tutorial repository (https://github.com/huydang-bossemi/mlir_tutorial) with a simple Dead Code Elimination (DCE) pass.
 
-A tiny project skeleton that demonstrates how to build an MLIR-based toy dialect, write passes, and run a minimal lowering pipeline. Everything is intentionally stubbed with TODO markers so learners can complete each step while following the docs under `docs/`.
+## Goal
+The pass removes operations that are considered dead code by repeatedly checking:
 
-## Project Layout
+1. Is the operation a terminator?
+  If yes, do not erase it.
+2. Does removing it preserve SSA correctness?
+  An operation can only be removed when all of its results have no uses.
+3. Repeat until fixed point
+  After one dead operation is removed, other operations may become dead too, so the pass loops again and again until no more dead operations remain.
 
-- `toy/` – Dialect sources, TableGen definitions, and registration hooks.
-- `passes/` – Example pass stubs (shape inference & canonicalization).
-- `examples/` – Toy source snippet plus helper script for the pipeline.
-- `docs/` – Tutorial chapters explaining each stage of the journey.
-- `docker/` – Self-contained build environment powered by LLVM/MLIR.
-- `CMakeLists.txt` – Configures the project against an existing MLIR build.
-
-## Prerequisites
-
-- LLVM/MLIR build (provide `LLVM_DIR`/`MLIR_DIR` via CMake cache or environment).
-- CMake ≥ 3.20 and Ninja (already bundled in the docker image).
-
-## Configure & Build
-
-```bash
-apt-get update
-apt-get install -y zlib1g-dev libtinfo-dev libedit-dev libxml2-dev
-mkdir build && cd build
-cmake -G Ninja .. \
-  -DMLIR_DIR=/opt/llvm/lib/cmake/mlir \
-  -DLLVM_DIR=/opt/llvm/lib/cmake/llvm
-ninja
+## Example
+Before
+```
+%0 = toy.add %a, %b
+%1 = toy.mul %0, %c
+return %a
 ```
 
-The configuration step automatically adds the Toy dialect library (`toy-dialect`) and pass library (`toy-passes`).
-
-## Run the Example Pipeline
-
-1. Build the project (generates `build/tools/toy-opt`).
-2. (Optional) Source your MLIR environment for extra tooling like `mlir-translate`.
-3. Execute the example script:
-   ```bash
-   ./examples/pipeline.sh
-   ```
-  The script feeds `examples/intro.toy` into `toy-opt`, executes the Toy pipeline (`toy-shape-inference`, `toy-canonicalize`, `toy-constant-fold`, `toy-dce`, `toy-cse`), and prints each IR stage. Extend it to finish the lowering story.
-
-## Docker Workflow
-
-```bash
-cd docker
-./docker_build.sh
-# optional: docker run --rm -it -v $(pwd)/..:/workspace mlir-tutorial /bin/bash
+After first iteration
+```
+%0 = toy.add %a, %b
+return %a
 ```
 
-Inside the container, configure & build exactly as above.
-
-## Learning Objectives
-
-- Understand how MLIR dialects are defined via TableGen and C++ scaffolding.
-- Implement operation builders, printers, and verifiers.
-- Write analysis / transformation passes and chain them into pipelines.
-- Lower custom dialect IR to the LinAlg/Arith dialects.
-- Use MLIR tooling (`mlir-opt`, `mlir-translate`, pass pipelines) for debugging.
-
-Dive into `docs/00_overview.md` to get started!
+After second iteration
+```
+return %a
+```
